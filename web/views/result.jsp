@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="w3-container w3-blue-grey w3-opacity w3-center-align">
-    <h1>Books</h1>
+    <h1>Результаты</h1>
 </div>
 
 <div class="w3-container w3-center w3-margin-bottom w3-padding">
@@ -43,7 +43,8 @@
                                 "<td>" + rightAnswers.get(i) + "</td>\n");
                         if (userAnswers.size() > i) {
                             out.print("<td>" + userAnswers.get(Integer.toString(i)) + "</td>\n");
-                            if (userAnswers.get(Integer.toString(i)).equals(rightAnswers.get(i))) {
+                            if (userAnswers.get(Integer.toString(i)).toLowerCase().
+                                    equals(rightAnswers.get(i).toLowerCase())) {
                                 out.print("<td>" + "Верно" + "</td>\n");
                             }
                             else
@@ -65,7 +66,7 @@
 
     <div class="w3-container w3-grey w3-opacity w3-right-align w3-padding">
         <button class="w3-btn w3-round-large"
-                onclick="location.href='/test/index.html'">Вернуться к тесту</button>
+                onclick="location.href='/test/'">Вернуться к тесту</button>
     </div>
 </body>
 </html>

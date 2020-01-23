@@ -67,6 +67,27 @@ public class PullOfQuestions
         setOfAnswers.put("Первый раздел Польши произошел в ...",
                 new ArrayList<>(Arrays.asList("1415", "1901", "1722", "1706")));
 
+        questionAnswerMap.put("Сколько лет длилась Столетняя война?",
+                "116");
+        setOfAnswers.put("Сколько лет длилась Столетняя война?",
+                new ArrayList<>(Arrays.asList("99", "112", "100", "116")));
+
+        questionAnswerMap.put("В каком году была основана компания Valve?",
+                "1996");
+        setOfAnswers.put("В каком году была основана компания Valve?",
+                new ArrayList<>(Arrays.asList("1996", "1997", "1998", "1999")));
+
+        questionAnswerMap.put("В каком году вышла Super Mario Bros. на gameboy advance",
+                "2004");
+        setOfAnswers.put("В каком году вышла Super Mario Bros. на gameboy advance",
+                new ArrayList<>(Arrays.asList("1983", "1985", "2004", "2007")));
+
+
+        questionAnswerMap.put("В какой букмекерской конторе самые быстрые выплаты и самые высокие коэффициенты?",
+                "1XBet");
+        setOfAnswers.put("В какой букмекерской конторе самые быстрые выплаты и самые высокие коэффициенты?",
+                new ArrayList<>(Arrays.asList("1XBet", "1XBet", "1XBet", "1XBet")));
+
         questionAnswerMap.put("Начало Курской битвы: ",
                 "5 июля 1943");
         setOfAnswers.put("Начало Курской битвы: ",

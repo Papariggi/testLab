@@ -40,12 +40,10 @@ function start(event) {
         success : function(responseText) {
 
             $('#currentQuestion').html(responseText);
-            getAnswers(currQuestionIndex);
-
+            makeChoice(currQuestionIndex);
         }
     })
     setTimeout(function () {
-        $('#questionAndOptions').show();
         $('#startTest').show();
         $('#startBtn').hide();
         $('#timer').show();
@@ -69,7 +67,15 @@ function next() {
         url : '/test/getQuestionServlet',
         data : "questionIndex=" + currQuestionIndex,
         success : function(responseText) {
-            getAnswers(currQuestionIndex);
+            $('#questionAndOptions1').trigger('reset');
+            $('#questionAndOptions2').trigger('reset');
+            set.length=0;
+            setTimeout(function () {
+                $('#questionAndOptions1').hide();
+                $('#questionAndOptions2').hide();
+            }, 100);
+
+            makeChoice(currQuestionIndex);
             $('#currentQuestion').html(responseText);
         }
     })
@@ -88,13 +94,27 @@ function last() {
         data : "questionIndex=" + currQuestionIndex,
         success : function(responseText) {
             $('#currentQuestion').html(responseText);
-            getAnswers(currQuestionIndex);
+            set.length = 0;
+            $('#questionAndOptions1').trigger('reset');
+            $('#questionAndOptions2').trigger('reset');
+
+            setTimeout(function () {
+                $('#questionAndOptions1').hide();
+                $('#questionAndOptions2').hide();
+            }, 100);
+            makeChoice(currQuestionIndex);
         }
     })
 };
 
-function makeAnswer() {
-    var ans = set[($("input[name='option']:checked").val())];
+function makeAnswer(index) {
+    if (index == 1) {
+        var ans = set[($("input[name='option']:checked").val())];
+    }
+    else {
+        var ans = $('#answerText').val();
+    }
+
     $.ajax({
         type: "POST",
         url : '/test/addAnswerServlet',
@@ -105,7 +125,13 @@ function makeAnswer() {
         success : next()
     })
     set.length = 0;
-    $('#questionAndOptions').trigger('reset');
+    $('#questionAndOptions1').trigger('reset');
+    $('#questionAndOptions2').trigger('reset');
+
+    setTimeout(function () {
+        $('#questionAndOptions1').hide();
+        $('#questionAndOptions2').hide();
+    }, 100);
     return false;
 };
 
@@ -150,6 +176,33 @@ function getAnswers(index) {
 
 
 function currentQuestion(index) {
+    $.ajax({
+        type: "POST",
+        url : '/test/getQuestionServlet',
+        data : "questionIndex=" + index,
+        success : function(responseText) {
+            getAnswers(index);
+            $('#currentQuestion').html(responseText);
+        }
+    })
+};
 
+function makeChoice(currQuestionIndex) {
+    if (selfRandom(1,2) == 1)
+    {
+        getAnswers(currQuestionIndex);
+        setTimeout(function () {
+            $('#questionAndOptions1').show();
+        }, 100);
+    }
+    else {
+        setTimeout(function () {
+            $('#questionAndOptions2').show();
+        }, 100);
+    }
+};
+
+function selfRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 

@@ -14,6 +14,8 @@ public class AddAnswerServlet extends HttpServlet {
         String question = req.getParameter("questionIndex");
         String answer = req.getParameter("answer");
 
+        if (answer == null || answer.isEmpty())
+            answer = "null";
         UserAnswersStorage.setAnswer(question, answer);
     }
 }

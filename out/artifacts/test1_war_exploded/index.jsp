@@ -43,12 +43,12 @@
      </div>
 
      <div class="w3-panel" id="startTest1" style="display:none">
-         <div class="w3-panel w3-teal w3-center w3-padding-24 w3-xxxlarge">
+         <div class="w3-panel w3-teal w3-center w3-padding-24 w3-xxlarge">
              <spand id="currentQuestion"/>
          </div>
 
          <div class="w3-panel w3-padding-16 w3-left">
-             <form name = "questionAndOptions" id = "questionAndOptions" onsubmit="return makeAnswer();"
+             <form name = "questionAndOptions1" id = "questionAndOptions1" onsubmit="return makeAnswer(1);"
                    style="display: none">
                  <label>
                      <input type="radio" data-id="0" name="option" value="0">
@@ -70,10 +70,18 @@
                      <spand id="option3"/>
                  </label>
                  <br>
-                 <input type="submit" id = "answerBtn" class="w3-btn w3-left w3-panel w3-padding-16
+                 <input type="submit" id = "answerBtn1" class="w3-btn w3-left w3-panel w3-padding-16
                     w3-hover-white w3-round-large w3-container w3-red w3-xlarge" value="Ответить" />
 
                  </p>
+             </form>
+
+             <form name = "questionAndOptions2" id = "questionAndOptions2" onsubmit="return makeAnswer(2);"
+                   style="display: none">
+                 <label class="w3-left w3-panel w3-xxlarge">Введите ответ: </label>
+                 <input type="text" id="answerText" class="w3-panel w3-padding-16 w3-left">
+                 <input type="submit" id = "answerBtn2" class="w3-btn w3-left w3-panel w3-padding-16
+                    w3-hover-white w3-round-large w3-container w3-red w3-xlarge" value="Ответить" />
              </form>
          </div>
      </div>
